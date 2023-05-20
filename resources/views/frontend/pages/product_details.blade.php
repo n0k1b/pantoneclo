@@ -217,9 +217,8 @@ if (Session::has('currency_symbol')){
                                     @if (($product->manage_stock==1 && $product->qty==0) || ($product->in_stock==0))
                                         <button disabled data-bs-toggle="tooltip" data-bs-placement="top" title="Out of Stock" class="button button-icon style1"><span><i class="las la-shopping-cart"></i> <span>@lang('file.Add to cart')</span></span></button>
                                     @else
-                                        <button type="submit" class="button button-icon style1 cart-button" data-product-id="{{$product->slug}}"><span><i class="las la-shopping-cart"></i> <span>@lang('file.Add to cart')</span></span></button>
-                                    @endif
-                                        <a><div b class="button button-icon style4 sm @auth add_to_wishlist @else forbidden_wishlist @endauth" data-product_id="{{$product->id}}" data-product_slug="{{$product->slug}}" data-category_id="{{$category->id ?? null}}" data-qty="1"><span><i class="ti-heart"></i> <span>@lang('file.Add to wishlist')</span></span></div></a>
+                                        <button type="submit" class="button button-icon style1 cart-button" data-product-id="{{$product->slug}}">Contact us</span></span></button>
+
                             </div>
                             <hr>
                             <div class="item-share mt-3" id="social-links"><span>@lang('file.Share')</span>
@@ -542,7 +541,7 @@ if (Session::has('currency_symbol')){
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary close-button'" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary send">Send</button>
       </div>
     </div>
@@ -610,7 +609,7 @@ if (Session::has('currency_symbol')){
     $("#emailModal").modal("show");
 
     // When the user clicks the "Send" button, retrieve the email subject and body and do something with them
-    $("#emailModal button.btn-primary").click(function(){
+    $("#emailModal .send").click(function(){
         var email = $("#emailModal #email").val();
         var contact_no = $("#emailModal #contact_no").val();
         var message = $("#emailModal #message").val();

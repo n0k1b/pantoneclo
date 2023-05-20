@@ -121,7 +121,7 @@ if (Session::has('currency_rate')){
                         </div>
                     </div>
 
-                    
+
                 @endif
             </div>
         </div>
@@ -148,7 +148,7 @@ if (Session::has('currency_rate')){
                     <div class="category-slider-wrapper swiper-container">
                     <div class="swiper-wrapper">
                         @forelse ($categories->where('top',1) as $item)
-                                
+
                             <div class="swiper-slide">
                                 <a href="{{url('category')}}/{{$item->slug}}">
                                     <div class="category-container">
@@ -303,7 +303,7 @@ if (Session::has('currency_rate')){
                                                                         @if (($item->product->manage_stock==1 && $item->product->qty==0) || ($item->product->in_stock==0))
                                                                             <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" title="Disabled"><button class="btn button style2 sm" disabled><i class="las la-cart-plus"></i></button></span>
                                                                         @else
-                                                                            <button class="button style2 sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
+                                                                            <button class="button style2 sm" type="button" onclick="showEmailModal('{{$item->product->slug}}')" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -401,7 +401,7 @@ if (Session::has('currency_rate')){
                                                                         @if (($item->product->manage_stock==1 && $item->product->qty==0) || ($item->product->in_stock==0))
                                                                             <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" title="Disabled"><button class="btn button style2 sm" disabled><i class="las la-cart-plus"></i></button></span>
                                                                         @else
-                                                                            <button class="button style2 sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
+                                                                            <button class="button style2 sm" type="button" onclick="showEmailModal('{{$item->product->slug}}')" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -498,7 +498,7 @@ if (Session::has('currency_rate')){
                                                                     @if (($item->product->manage_stock==1 && $item->product->qty==0) || ($item->product->in_stock==0))
                                                                         <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" title="Disabled"><button class="btn button style2 sm" disabled><i class="las la-cart-plus"></i></button></span>
                                                                     @else
-                                                                        <button class="button style2 sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
+                                                                        <button class="button style2 sm" type="button" onclick="showEmailModal('{{$item->product->slug}}')" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -595,7 +595,7 @@ if (Session::has('currency_rate')){
                                                                     @if (($item->product->manage_stock==1 && $item->product->qty==0) || ($item->product->in_stock==0))
                                                                         <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" title="Disabled"><button class="btn button style2 sm" disabled><i class="las la-cart-plus"></i></button></span>
                                                                     @else
-                                                                        <button class="button style2 sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
+                                                                        <button class="button style2 sm" type="button" onclick="showEmailModal('{{$item->product->slug}}')" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
                                                                     @endif                                                                </div>
                                                             </div>
                                                         </div>
@@ -751,7 +751,7 @@ if (Session::has('currency_rate')){
                                                                 @if (($item->product->manage_stock==1 && $item->product->qty==0) || ($item->product->in_stock==0))
                                                                     <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" title="Disabled"><button class="btn button style2 sm" disabled><i class="las la-cart-plus"></i></button></span>
                                                                 @else
-                                                                    <button class="button style2 sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
+                                                                    <button class="button style2 sm" type="button" onclick="showEmailModal('{{$item->product->slug}}')" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -886,7 +886,7 @@ if (Session::has('currency_rate')){
                                                                         @if (($item->product->manage_stock==1 && $item->product->qty==0) || ($item->product->in_stock==0))
                                                                             <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" title="Disabled"><button class="btn button style2 sm" disabled><i class="las la-cart-plus"></i></button></span>
                                                                         @else
-                                                                            <button class="button style2 sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
+                                                                            <button class="button style2 sm" type="button" onclick="showEmailModal('{{$item->product->slug}}')" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -983,7 +983,7 @@ if (Session::has('currency_rate')){
                                                                         @if (($item->product->manage_stock==1 && $item->product->qty==0) || ($item->product->in_stock==0))
                                                                             <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" title="Disabled"><button class="btn button style2 sm" disabled><i class="las la-cart-plus"></i></button></span>
                                                                         @else
-                                                                            <button class="button style2 sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
+                                                                            <button class="button style2 sm" type="button" onclick="showEmailModal('{{$item->product->slug}}')" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -1079,7 +1079,7 @@ if (Session::has('currency_rate')){
                                                                         @if (($item->product->manage_stock==1 && $item->product->qty==0) || ($item->product->in_stock==0))
                                                                             <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" title="Disabled"><button class="btn button style2 sm" disabled><i class="las la-cart-plus"></i></button></span>
                                                                         @else
-                                                                            <button class="button style2 sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
+                                                                            <button class="button style2 sm" type="button" onclick="showEmailModal('{{$item->product->slug}}')" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -1222,7 +1222,7 @@ if (Session::has('currency_rate')){
                                                 @if (($item->product->manage_stock==1 && $item->product->qty==0) || ($item->product->in_stock==0))
                                                     <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" title="Disabled"><button class="btn button style2 sm" disabled><i class="las la-cart-plus"></i></button></span>
                                                 @else
-                                                    <button class="button style2 sm" type="submit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
+                                                    <button class="button style2 sm" type="button" onclick="showEmailModal('{{$item->product->slug}}')" data-bs-toggle="tooltip" data-bs-placement="top"><i class="las la-cart-plus"></i></button>
                                                 @endif
                                             </div>
                                         </div>
@@ -1343,11 +1343,83 @@ if (Session::has('currency_rate')){
     </div>
 </div>
 @endsection
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="emailModalLabel">Email subject</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="emailSubject">Your Email Address</label>
+          <input type="text" class="form-control" id="email" value="">
+        </div>
 
+        <div class="form-group">
+          <label for="emailSubject">Your Contact No</label>
+          <input type="text" class="form-control" id="contact_no" value="">
+        </div>
+
+        <div class="form-group">
+          <label for="emailBody">Message</label>
+          <textarea class="form-control" id="message" rows="5"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary send">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 @push('scripts')
     <script type="text/javascript">
 
+         function showEmailModal(productId){
+                $("#emailModal #emailSubject").val("Product added to cart: ");
+                $("#emailModal #message").val("I want to know more about following product  " + productId+'.');
+
+                // Trigger the modal to show
+                $("#emailModal").modal("show");
+
+                // When the user clicks the "Send" button, retrieve the email subject and body and do something with them
+                $("#emailModal .send").click(function(){
+                    var email = $("#emailModal #email").val();
+                    var contact_no = $("#emailModal #contact_no").val();
+                    var message = $("#emailModal #message").val();
+                    $.ajax({
+                        url: "{{ route('api.send-email') }}",
+                        type: "POST",
+                        data: {
+                            email: email,
+                            contact_no: contact_no,
+                            message:message,
+
+                        },
+                        success: function(response){
+                            console.log("Email sent successfully");
+                            // Close the modal
+                            $("#emailModal").modal("hide");
+                            // TODO: Show a success message to the user
+                        },
+                        error: function(error){
+                            console.log("Error sending email: " + error);
+                            // TODO: Show an error message to the user
+                        }
+                    });
+                });
+         }
+
+         $('#emailModal .close').click(function() {
+    $('#emailModal').modal('hide');
+  });
+  $('#emailModal .close-button').click(function() {
+    $('#emailModal').modal('hide');
+  });
         //for Product_Tab_1
         $('.attribute_value_productTab1').on("click",function(e){
             e.preventDefault();
@@ -1424,6 +1496,3 @@ if (Session::has('currency_rate')){
 
     </script>
 @endpush
-
-
-
