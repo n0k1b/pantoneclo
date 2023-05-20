@@ -33,7 +33,7 @@ class CartController extends Controller
     public function sendEmail(Request $request)
     {
         //Log::info($request);
-        $email = 'mohammadshahin675@gmail.com';
+        $email = 'Jewel@matrixapparels.com';
 
         Mail::to($email)->send(new ProductEmail($request->message, $request->contact_no, $request->email));
 
