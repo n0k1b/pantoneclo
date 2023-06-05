@@ -1922,7 +1922,8 @@ span.promo-price{
 }
 .single-product-item img{
     padding:0 0px !important;
-    width:100%
+    width:100%;
+    height: 250px !important;
 }
 .product-rating li{
     display:inline-block

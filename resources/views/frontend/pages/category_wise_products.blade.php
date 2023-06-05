@@ -226,46 +226,15 @@ if (Session::has('currency_symbol')){
                                                         </div>
                                                     </div>
                                                     <div class="product-details">
-                                                        <a class="product-name" href="{{url('product/'.$item->product->slug.'/'. $category->id)}}">
-                                                            {{$item->product->productTranslation->product_name ?? $item->product->productTranslationEnglish->product_name ?? null}}
-                                                        </a>
+
                                                         <div class="product-short-description">
                                                             {{$item->product->productTranslation->short_description ?? $item->product->productTranslationEnglish->short_description ?? null}}
                                                         </div>
                                                         <div class="d-flex justify-content-between align-items-center">
                                                             <div>
-                                                                <div class="rating-summary">
-                                                                    <div class="rating-result" title="60%">
-                                                                        <ul class="product-rating">
-                                                                            @php
-                                                                                for ($i=1; $i <=5 ; $i++){
-                                                                                    if ($i<= round($item->product->avg_rating)){  @endphp
-                                                                                        <li><i class="las la-star"></i></li>
-                                                                            @php
-                                                                                    }else { @endphp
-                                                                                        <li><i class="lar la-star"></i></li>
-                                                                            @php        }
-                                                                                }
-                                                                            @endphp
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
+
                                                                 <div class="product-price">
-                                                                    @if ($item->product->special_price!=NULL && $item->product->special_price>0 && $item->product->special_price < $item->product->price)
-                                                                        @if(env('CURRENCY_FORMAT')=='suffix')
-                                                                            <span class="promo-price">{{ number_format((float)$item->product->special_price * $CHANGE_CURRENCY_RATE, env('FORMAT_NUMBER'), '.', '')}} @include('frontend.includes.SHOW_CURRENCY_SYMBOL')</span>
-                                                                            <span class="old-price">{{ number_format((float)$item->product->price * $CHANGE_CURRENCY_RATE, env('FORMAT_NUMBER'), '.', '') }} @include('frontend.includes.SHOW_CURRENCY_SYMBOL')</span>
-                                                                        @else
-                                                                            <span class="promo-price">@include('frontend.includes.SHOW_CURRENCY_SYMBOL') {{ number_format((float)$item->product->special_price * $CHANGE_CURRENCY_RATE, env('FORMAT_NUMBER'), '.', '')}} </span>
-                                                                            <span class="old-price"> @include('frontend.includes.SHOW_CURRENCY_SYMBOL') {{ number_format((float)$item->product->price * $CHANGE_CURRENCY_RATE, env('FORMAT_NUMBER'), '.', '') }}</span>
-                                                                        @endif
-                                                                    @else
-                                                                        @if(env('CURRENCY_FORMAT')=='suffix')
-                                                                            <span class="price">{{ number_format((float)$item->product->price * $CHANGE_CURRENCY_RATE, env('FORMAT_NUMBER'), '.', '') }} @include('frontend.includes.SHOW_CURRENCY_SYMBOL')</span>
-                                                                        @else
-                                                                            <span class="price">@include('frontend.includes.SHOW_CURRENCY_SYMBOL') {{ number_format((float)$item->product->price * $CHANGE_CURRENCY_RATE, env('FORMAT_NUMBER'), '.', '') }}</span>
-                                                                        @endif
-                                                                    @endif
+                                                                {{$item->product->productTranslation->product_name ?? $item->product->productTranslationEnglish->product_name ?? null}}
                                                                 </div>
                                                             </div>
                                                             <div>
@@ -417,7 +386,7 @@ if (Session::has('currency_symbol')){
         /*------------------------
              price range slider
         --------------------------*/
-        let moneySymbol = "<?php echo ($CHANGE_CURRENCY_SYMBOL!=NULL ? $CHANGE_CURRENCY_SYMBOL : env('DEFAULT_CURRENCY_SYMBOL')) ?>";
+        let moneySymbol = "<?php echo($CHANGE_CURRENCY_SYMBOL != null ? $CHANGE_CURRENCY_SYMBOL : env('DEFAULT_CURRENCY_SYMBOL')) ?>";
 
         if ($('#slider-range').length) {
             $("#slider-range").slider({
