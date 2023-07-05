@@ -581,7 +581,7 @@ a.underline:after{
     color:var(--theme-color);
     line-height:46px;
     margin-left:-5px;
-    padding:0 15px;
+    padding:15px 15px !important;
     position:relative;
     width:auto
 }

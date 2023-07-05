@@ -1300,7 +1300,7 @@ a.underline:after {
     line-height: 40px;
     margin-left: -4px;
     margin-top: -2px;
-    padding: 0 15px;
+    padding: 15px 15px !important;
     position: relative;
     width: auto;
 }

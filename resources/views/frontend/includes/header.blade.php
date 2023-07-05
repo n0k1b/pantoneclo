@@ -16,55 +16,7 @@ if (Session::has('currency_rate')){
             </div>
         @endif
 
-            <div id="header-top" class="header-top">
-                <div class="container">
-                    <div class="d-lg-flex d-xl-flex justify-content-between">
-                        <div class="header-top-left d-none d-lg-flex d-xl-flex">
-                            <ul class="header-top-social menu">
-                                @if(isset($storefront_facebook_link))
-                                <li><a href="{{$storefront_facebook_link}}"><i class="ti-facebook"></i></a></li>
-                                @endif
-                                @if(isset($storefront_twitter_link))
-                                <li><a href="{{$storefront_twitter_link}}"><i class="ti-instagram"></i></a></li>
-                                @endif
-                                @if(isset($storefront_instagram_link))
-                                <li><a href="{{$storefront_instagram_link}}"><i class="ti-twitter"></i></a></li>
-                                @endif
-                                @if(isset($storefront_youtube_link))
-                                <li><a href="{{$storefront_youtube_link}}"><i class="ti-youtube"></i></a></li>
-                                @endif
-                            </ul>
-                        </div>
-                        <div class="header-top-middle d-none d-lg-flex d-xl-flex">
-                            <span class="announcement">
-                                <!--Welcome-->
-                                @if ($settings[0]->settingTranslation || $settings[0]->settingTranslationDefaultEnglish)
-                                    {{$settings[0]->settingTranslation->value ?? $settings[0]->settingTranslationDefaultEnglish->value ?? NULL}}
-                                @endif
-                            </span>
-                        </div>
-                        <div class="header-top-right">
-                            <ul>
-                                <li><a href="{{route('cartpro.order_tracking')}}">{{'Order Tracking'}}</a></li>
-                                <li class="has-dropdown"><a href="#"><i class="las la-language"></i>&nbsp; {{$languages[$locale]->language_name}}</a>
-                                    <ul class="dropdown p-0">
-                                        @foreach ($languages as $item)
-                                            <li><a href="{{route('cartpro.default_language_change',$item->id)}}" {{$item->local==Session::get('currentLocal') ? 'selected': ''}}>{{$item->language_name}}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                <li class="has-dropdown"><a href="#"><i class="las la-money-bill"></i>&nbsp; @if(Session::has('currency_code')) {{Session::get('currency_code')}} @else {{env('DEFAULT_CURRENCY_CODE')}} @endif</a>
-                                    <ul class="dropdown p-0">
-                                        @foreach ($currency_codes as $item)
-                                            <li><a href="{{route('cartpro.currency_change',$item->currency_code)}}" {{$item->currency_code==Session::get('currency_code') ? 'selected': ''}}>{{$item->currency_code}}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
 
             <div id="header-middle" class="header-middle">
                 <div class="container">
@@ -89,52 +41,7 @@ if (Session::has('currency_rate')){
                                 </div>
                             </form>
                         </div>
-                        <div class="col-lg-3 col-5">
-                            <ul class="offset-menu-wrapper p-0">
-                                <li class="d-lg-none">
-                                    <a><i class="las la-search" data-bs-toggle="collapse" href="#mobile-search" role="button" aria-expanded="false" aria-controls="mobile-search"></i></a>
-                                </li>
-                                @auth
-                                    <li>
-                                        <a href="{{route('user_account')}}"><i class="las la-user" data-bs-toggle="tooltip" data-bs-placement="bottom" title="My Account"></i></a>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a href="{{route('customer_login_form')}}"><i class="las la-user-lock" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Login"></i></a>
-                                    </li>
-                                @endauth
 
-
-                                @auth
-                                    <li class="wishlist__menu d-none d-lg-inline-block d-xl-inline-block">
-                                        <a href="{{route('wishlist.index')}}">
-                                            <i class="lar la-heart" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wishlist"></i>
-                                        </a>
-                                        <span class="badge badge-light wishlist_count">{{$total_wishlist }}</span>
-                                    </li>
-                                @else
-                                    <li class="cart__menu d-none d-lg-inline-block d-xl-inline-block">
-                                        <a href="#">
-                                            <i class="lar la-heart" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Wishlist"></i>
-                                        </a>
-                                        <span class="badge badge-light">0</span>
-                                    </li>
-                                @endauth
-
-
-                                <li class="cart__menu">
-                                    <i class="las la-shopping-cart" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cart"></i>
-                                    <span class="badge badge-light cart_count">{{$cart_count}}</span>
-                                    <span class="total">
-                                        @if(env('CURRENCY_FORMAT')=='suffix')
-                                            <span class="cart_total">{{ number_format((float)$cart_total * $CHANGE_CURRENCY_RATE, env('FORMAT_NUMBER'), '.', '') }}</span> @include('frontend.includes.SHOW_CURRENCY_SYMBOL')
-                                        @else
-                                            @include('frontend.includes.SHOW_CURRENCY_SYMBOL') <span class="cart_total">{{ number_format((float)$cart_total * $CHANGE_CURRENCY_RATE, env('FORMAT_NUMBER'), '.', '') }}</span>
-                                        @endif
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -275,7 +182,7 @@ if (Session::has('currency_rate')){
                                                     @empty
                                                     @endforelse
                                                 @endif
-                                                <li class="deal-menu-item"><a href="{{route('cartpro.daily_deals')}}"><i class="las la-tag d-none d-md-inline-block"></i> @lang('file.Daily Deals')</a></li>
+
                                             </ul>
                                         </div>
                                         <div class="tab-pane fade" id="mobile_cat" role="tabpanel" aria-labelledby="category-tab">
@@ -323,7 +230,7 @@ if (Session::has('currency_rate')){
                                     </div>
                                     <div class="shp__pro__details">
                                         <h2><a href="{{url('product/'.$item->options->product_slug.'/'. $item->options->category_id)}}">{{$item->name}}</a></h2>
-                                        
+
                                         @php
                                             if($item->options->attributes){
                                                 $data = $item->options->attributes;

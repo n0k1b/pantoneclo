@@ -64,20 +64,7 @@
                     <p class="mb-1"><i class="las la-envelope"></i> &nbsp; <span>{{$setting_store->store_email ?? null}}</span></p>
                     <p class="mb-1"><i class="las la-map-marker"></i> &nbsp; <span>{{$storefront_address}}</span></p>
                 </div>
-                <ul class="footer-social mt-3 p-0">
-                    @if ($storefront_facebook_link!=null)
-                        <li><a href="{{$storefront_facebook_link}}"><i class="ti-facebook"></i></a></li>
-                    @endif
-                    @if ($storefront_twitter_link!=null)
-                        <li><a href="{{$storefront_twitter_link}}"><i class="ti-twitter"></i></a></li>
-                    @endif
-                    @if ($storefront_instagram_link!=null)
-                        <li><a href="{{$storefront_instagram_link}}"><i class="ti-instagram"></i></a></li>
-                    @endif
-                    @if ($storefront_youtube_link!=null)
-                        <li><a href="{{$storefront_youtube_link}}"><i class="ti-youtube"></i></a></li>
-                    @endif
-                </ul>
+
             </div>
             <div class="col-lg-8 col-md-8">
                 <div class="row">

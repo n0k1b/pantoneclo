@@ -49,7 +49,7 @@ if (Session::has('currency_symbol')){
             </div>
 
             <div class="row">
-                <div class="col-md-6 mar-bot-30">
+                <div class="col-md-8 mar-bot-30">
                     <div class="slider-wrapper">
                         <div class="slider-nav">
                              @if ($product->baseImage)
@@ -96,7 +96,7 @@ if (Session::has('currency_symbol')){
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <form class="mb-3" id="productAddToCartSingle" action="{{route('product.add_to_cart')}}" method="POST">
                         @csrf
                         <input type="hidden" name="product_id" value="{{$product->id}}">
@@ -216,20 +216,19 @@ if (Session::has('currency_symbol')){
 
                                     @if (($product->manage_stock==1 && $product->qty==0) || ($product->in_stock==0))
                                         <button disabled data-bs-toggle="tooltip" data-bs-placement="top" title="Out of Stock" class="button button-icon style1"> <span>@lang('file.Add to cart')</span></span></button>
-                                    @else
-                                        <button type="submit" class="button button-icon style1 cart-button" data-product-id="{{$product->slug}}">Contact Us</span></span></button>
                                     @endif
-                                        <a><div b class="button button-icon style4 sm @auth add_to_wishlist @else forbidden_wishlist @endauth" data-product_id="{{$product->id}}" data-product_slug="{{$product->slug}}" data-category_id="{{$category->id ?? null}}" data-qty="1"><span><i class="ti-heart"></i> <span>@lang('file.Add to wishlist')</span></span></div></a>
+                                        <button type="submit" class="button button-icon style1 cart-button" data-product-id="{{$product->slug}}">Contact Us</span></span></button>
+
                             </div>
                             <hr>
-                            <div class="item-share mt-3" id="social-links"><span>@lang('file.Share')</span>
+                            <!-- <div class="item-share mt-3" id="social-links"><span>@lang('file.Share')</span>
                                 <ul class="footer-social d-inline pad-left-15">
                                     <li><a href="{{$socialShare['facebook']}}"><i class="ti-facebook"></i></a></li>
                                     <li><a href="{{$socialShare['twitter']}}"><i class="ti-twitter"></i></a></li>
                                     <li><a href="{{$socialShare['linkedin']}}"><i class="ti-linkedin"></i></a></li>
                                     <li><a href="{{$socialShare['reddit']}}"><i class="ti-reddit"></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </form>
                 </div>
